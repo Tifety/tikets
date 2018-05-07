@@ -19,28 +19,33 @@
 #include <iostream>
 #include <map>
 #include <vector>
-
+#include <string>
 struct Name {
     std::string fname;
     std::string sname;
     };
 
-struct Paid {
+class Paid {
+    public:
+    Paid(int p, double s, std::string c);
+    Paid(int p, std::string c);
+    Paid ();
     int price;
-    double procent;
+    double support_get;
     std::string descript;
+    private:
 };
 
 class Worker {
     public:
-        Worker(string second_name, string first_name);
+        Worker(std::string second_name, std::string first_name);
         Worker(Name n);
 
         void const GetName();
         void AddTicket(int num, Paid tik);
         void const PrintSelf();
-        void ChangeTicket()int num, Paid change;
+        void ChangeTicket(int num, Paid change);
     private:
-        Name Preson;
-        map <int, Paid> tickets;
+        Name Person;
+        std::map <int, Paid> tickets;
 };

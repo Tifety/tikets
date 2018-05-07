@@ -1,6 +1,10 @@
 #include <iostream> 
 #include "tickets.h"
 using namespace std;
+
+
+
+
 int main () {
 
     cout << "Nice!" << endl;
@@ -8,7 +12,7 @@ int main () {
     Name n = { "One", "Two"};
     Worker one(n);
     one.GetName();
-    one.AddTicket(1, {10, 4, "test"});
+    one.AddTicket(1, {10, 10*0.4, "test"});
     one.AddTicket(2, {10, 4, "test"});
     one.AddTicket(3, {10, 4, "test"});
     one.AddTicket(4, {10, 4, "test"});
