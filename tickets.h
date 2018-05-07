@@ -20,10 +20,15 @@
 #include <map>
 #include <vector>
 #include <string>
+#include <algorithm>
+
 struct Name {
     std::string fname;
     std::string sname;
     };
+
+std::istream& operator>> (std::istream& is, Name& n);
+bool is_number (const std::string& test); 
 
 class Paid {
     public:

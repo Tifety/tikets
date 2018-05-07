@@ -10,6 +10,15 @@
 #include "tickets.h"
 using namespace std;
 
+bool is_number( const string& test) {
+    return find_if(test.begin(), test.end(), [] (char c) {return !isdigit(c);}) == test.end();
+}
+
+istream& operator>> (istream& is, Name& n) {
+    is >> n.sname;
+    is >> n.fname;
+}
+
  Paid::Paid() {
   Paid::price = 0;
   Paid::support_get =0;
@@ -27,12 +36,8 @@ Paid::Paid(int p, string c) {
   Paid::support_get = p * 0.4;
   descript = c;
 }
-/*Paid::Paid (const Paid& obj) {
-  Paid::price = obj.price;
-  Paid::support_get = obj.support_get;
-  Paid::descript = obj.descript;
-}
-*/
+
+
 
 Worker::Worker (string second_name, string first_name) {
   Worker::Person.fname = first_name;
