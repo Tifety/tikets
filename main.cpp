@@ -1,5 +1,6 @@
 #include <iostream> 
 #include "tickets.h"
+#include <utility>
 using namespace std;
 
 
@@ -14,18 +15,27 @@ int main () {
             "N - name of support" << endl <<
             "Tn - ticket number" << endl <<
             "Tp - ticket price" << endl << 
-            "C - comment with work in ticket" << endl;
+            "C - comment with work in ticket" << endl <<
+            "Print EXIT for quit" << endl;
     map <Name, Worker> Tickets_for_pay;
     Name n;
     int number;
     int p; 
     double s;
     string c;
+    while (true) {
     cin >> n;
+    if (n.sname == "EXIT") break;
     cin >> number >> p >> s >> c;
     Paid Ticket(p, s, c);
-    cout << n.sname << " " << n.fname << endl;
-    cout << number << ": "<< Ticket.price << " " << Ticket.support_get << " " << Ticket.descript << endl; 
+    cout << number << ": "<< Ticket.price << " " << Ticket.support_get << " " << Ticket.descript << endl;
+    Tickets_for_pay.insert(pair <Name, Worker> (n, Worker(n)));
+    Tickets_for_pay.at(n).AddTicket(number, Ticket);
+    for (auto p : Tickets_for_pay) {
+    cout << p.first.sname << " " << p.first.fname << endl;
+    p.second.PrintSelf();
+    }
+    }
 /*    Worker one(n);
     one.GetName();
     one.AddTicket(1, {10, 10*0.4, "test"});

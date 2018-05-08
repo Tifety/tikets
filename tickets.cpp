@@ -8,6 +8,7 @@
 #include <map>
 #include <vector>
 #include "tickets.h"
+#include <tuple>
 using namespace std;
 
 bool is_number( const string& test) {
@@ -17,6 +18,10 @@ bool is_number( const string& test) {
 istream& operator>> (istream& is, Name& n) {
     is >> n.sname;
     is >> n.fname;
+}
+
+bool operator< (Name lhs, Name rhs) {
+    return tie(lhs.sname, lhs.fname) < tie(rhs.sname, rhs.fname);
 }
 
  Paid::Paid() {

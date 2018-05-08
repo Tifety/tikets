@@ -29,6 +29,7 @@ struct Name {
 
 std::istream& operator>> (std::istream& is, Name& n);
 bool is_number (const std::string& test); 
+bool operator< (Name lhs, Name rhs);
 
 class Paid {
     public:
