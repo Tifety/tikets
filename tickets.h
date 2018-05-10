@@ -39,6 +39,7 @@ class Paid {
     int price;
     double support_get;
     std::string descript;
+    std::string comment;
     private:
 };
 
