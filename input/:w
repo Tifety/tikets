@@ -14,8 +14,8 @@
 #include <iostream>
 
 struct Name {
-    std::string first_name;
-    std::string second_name;
+    string first_name;
+    string second_name;
 };
 
 void support_manager (std::vector <std::string>::iterator start,

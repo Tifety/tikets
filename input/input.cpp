@@ -9,19 +9,13 @@
 
 #include "input.h"
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include <set>
-#include <algorithm>
-#include "manager.h"
-
 using namespace std;
 
 vector <string>  parse_command() {
     vector <string> tokens;
     string command;
     getline(cin, command);
+    cout << "in parser" << command << endl;
     auto start = command.begin();
     auto finish = command.end();
     auto point = start;
@@ -41,6 +35,12 @@ int main() {
     while (true) {
         cout << "> ";
         vector <string> command_parts = parse_command();
+        
+    for (auto a : command_parts) {
+        cout << "input" << endl;
+        cout << a << " ";
+    }
+        cout << "mark 1" << endl;
         switcher(command_parts);
     }
 }
