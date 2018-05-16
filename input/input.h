@@ -2,6 +2,7 @@
 
 
 #pragma once
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,4 +11,4 @@
 #include "manager.h"
 
 
-std::vector <std::string> parse_command();
+std::vector <std::string> input_with_prompt();

@@ -9,6 +9,7 @@
 
 #include "support.h"
 
+#include <limits>
 
 using namespace std;
 
@@ -32,24 +33,17 @@ void add_input () {
 Name input;
     cout << "Name: ";
     cin >> input.first_name;
+//        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout << "Second name: ";
     cin >> input.second_name;
-    cout << input.first_name << " " << input.second_name;
-    cin.ignore(); 
-    return;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return;
 }
 
 
 
-class Supports {
-
-    void Add(Name new_sup) {
-    support_list[next_id] = new_sup;
-    next_id ++;
+    void Supports::Add(Name new_sup) {
+      support_list[next_id] = new_sup;
+      next_id ++;
     }
-
-    private:
-        int next_id=1;
-        map <int, Name> support_list; 
-};
 

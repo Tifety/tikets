@@ -22,3 +22,12 @@ void support_manager (std::vector <std::string>::iterator start,
                      std::vector <std::string>:: iterator finish);
 
 void add_input ();
+
+class Supports {
+  public:
+  void Add(Name new_sup);
+
+    private:
+        int next_id=1;
+        std::map <int, Name> support_list; 
+};

@@ -8,41 +8,32 @@
  ***************************************************************************************/
 
 #include "input.h"
-
 using namespace std;
 
-vector <string>  parse_command() {
-    vector <string> tokens;
-    string command;
-    getline(cin, command);
-    cout << "in parser" << command << endl;
-    auto start = command.begin();
-    auto finish = command.end();
-    auto point = start;
-    while (point!=finish) {
-        string token;
-        point = find(start, finish, ' ');
-        for (auto i = start; i!=point; i++) {
-            token+=*i;
-        }
-        tokens.push_back(token);
-        start=point+1;
-    }
-    return tokens;
-}
-
-int main() {
-    while (true) {
+vector <string>  input_with_prompt() {
         cout << "> ";
-        vector <string> command_parts = parse_command();
-        
-    for (auto a : command_parts) {
-        cout << "input" << endl;
-        cout << a << " ";
-    }
-        cout << "mark 1" << endl;
-        switcher(command_parts);
-    }
+        vector <string> tokens;
+        string command;
+        getline(cin, command);
+        cout << "in parser: " << command << endl;
+        auto start = command.begin();
+        auto finish = command.end();
+        auto point = start;
+        while (point!=finish) {
+            string token;
+            point = find(start, finish, ' ');
+            for (auto i = start; i!=point; i++) {
+                token+=*i;
+            }
+            tokens.push_back(token);
+            start=point+1;
+        }
+/*         cout << "input: " << endl;
+        for (auto a : tokens) {
+            cout << a << " ";
+        }
+        cout << "switcher start: " << endl; */ 
+return tokens;
 }
 
 
