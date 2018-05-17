@@ -18,15 +18,27 @@ struct Name {
     std::string second_name;
 };
 
-void support_manager (std::vector <std::string>::iterator start,
-                     std::vector <std::string>:: iterator finish);
+std::istream& operator>> (std::istream& is, Name& name);
 
-void add_input ();
+Name  add_input ();
 
-class Supports {
+class Data {
   public:
-  void Add(Name new_sup);
+  virtual void  Add()= 0 ;
+  virtual void  Del(int id)= 0 ;
+  virtual void  Update(int id)= 0 ;
 
+  virtual void Search(int id) = 0;
+  virtual void List() = 0;
+};
+
+class Supports:public Data {
+  public:
+  void Add() override;
+  void Del(int id) override; 
+  void List() override;
+  void  Update(int id) override;
+  void Search(int id) override;
     private:
         int next_id=1;
         std::map <int, Name> support_list; 

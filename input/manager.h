@@ -14,13 +14,13 @@
 #include <vector>
 #include <set>
 #include <algorithm>
-
+#include "support.h"
 bool type_check (const std::string & type);
 bool size_check (const int size);
 bool action_check(const std::string& action);
 bool id_check (const std::string& id);
 bool validation(const std::vector <std::string> & command);
-    void manager (const std::string&  type, std::vector<std::string>::iterator start,
-       std::vector <std::string>::iterator finish);
 void switcher(std::vector <std::string> command);
 
+void Manager(Data& data, 
+            std::vector <std::string> command);

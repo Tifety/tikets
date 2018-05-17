@@ -13,37 +13,54 @@
 
 using namespace std;
 
-void add_input();
-
-void support_manager (vector <string>::iterator start,
-                     vector <string>:: iterator finish) {
-    cout << "Calling for support manager with: ";
-    for (auto i = start; i!=finish; i++) {
-        cout << *i << " ";
-    }
-    cout << endl;
-    if (*start == "add") {
-        add_input();
-    }
-return;
-}
-
-
-void add_input () {
-Name input;
-    cout << "Name: ";
-    cin >> input.first_name;
+istream& operator>> (istream& is, Name& name) {
+    cout << "First name: ";
+    getline(cin, name.first_name);
 //        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     cout << "Second name: ";
-    cin >> input.second_name;
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return;
+    getline(cin, name.second_name);
+      //  cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return is;
 }
-
-
-
-    void Supports::Add(Name new_sup) {
+void Supports::Add() {
+      Name new_sup;
+      cin >> new_sup;
       support_list[next_id] = new_sup;
       next_id ++;
     }
+
+void Supports::Del(int id) {  
+  if (support_list.count(id) == 0) {
+    cout << "No support with id " << id << endl;
+    return;
+  }
+  support_list.erase(id);
+  cout << "Some tickets should be delete" << endl;
+
+}
+
+void Supports::List ( ) {
+  for (auto a : support_list) {
+    cout << a.first << " : "  
+    << a.second.first_name << " " << a.second.second_name << endl;
+  }
+}
+
+void Supports::Update (int id) {
+if (support_list.count(id) == 0) {
+  cout << "No support with id " << id << endl;
+  return;
+}
+  Name update_sup;
+  cin >> update_sup;
+  support_list[id] = update_sup;
+}
+
+void Supports::Search(int id) {
+if (support_list.count(id) == 0) {
+  cout << "No support with id " << id << endl;
+  return;
+}
+cout << "There will be tickets for support with id" << id << endl;
+}  
 

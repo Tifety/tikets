@@ -8,7 +8,6 @@
  ***************************************************************************************/
 
 #include "manager.h"
-#include "support.h"
 
 using namespace std;
 
@@ -47,33 +46,37 @@ bool validation(const vector <string> & command){
     return size && type && action && id;
 }
 
-    void manager (const string&  type, vector<string>::iterator start, 
-       vector <string>::iterator finish) {
-    if (type == "support") {
-        cout << "support manager call :" << endl; 
-        support_manager(start, finish);
-    }
-       
+void Manager(Data& data, vector <string> command) {
+  string action = command[0];
+  if (action == "add") {
+  if (command.size() > 1) {
+    cout << "Wrong syntax" << endl;
+    return;
+  }
+  data.Add();
 }
-void switcher(vector <string> command) {
-        cout << "to switcher:" << endl;
-    for (auto a : command) {
-        cout << a << " ";
-    }
-    cout << endl;
-    const int max_s = 3;
-    const int min_s = 2;
-//    cout << "mark a" << endl;
-    if (command[0] == "exit" ) exit(0);
-//    cout << "mark b" << endl;
-    if (!validation(command)) {
-        cout << "Wrong syntax" << endl;
-    }
-    else { string type = command[0];
- //   cout << "mark c" << endl;
-    manager(type, command.begin()+1, command.end());
-//    cout << "mark d" << endl;
-    }
+  else if (action == "del" ) {
+  if (command.size() <= 1) {
+    cout << "Wrong syntax" << endl;
+    return;
+  }
+    data.Del(stoi(command[1]));
+  }
+if (action == "update") {
+  if (command.size() <=1) {
+    cout << "Wrong syntax" << endl;
+  return;
+  }
+  data.Update(stoi(command[1]));
 }
 
+if (action == "search") {
+  if (command.size() <=1) {
+    cout << "Wrong syntax" << endl;
+  return;
+  }
+  data.Search(stoi(command[1]));
+}
 
+data.List();
+}
