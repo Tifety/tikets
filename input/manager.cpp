@@ -43,6 +43,8 @@ bool validation(const vector <string> & command){
     if (command.size() == 3) {
         id = id_check (command[2]);
     }
+    if (!size || !type || !action || !id)
+        cout << size << " " <<  type << " " << action << " " << id;
     return size && type && action && id;
 }
 

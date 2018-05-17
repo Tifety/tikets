@@ -8,16 +8,30 @@
  ***************************************************************************************/
 
 #include "input.h"
+#include <algorithm>
 using namespace std;
+
+void print(string::iterator start, string::iterator finish) {
+    for (auto a = start; a!= finish; a++) {
+        cout <<*a;
+    }
+    cout << endl;
+}
 
 vector <string>  input_with_prompt() {
         cout << "> ";
         vector <string> tokens;
         string command;
         getline(cin, command);
-        cout << "in parser: " << command << endl;
+        cout << command << endl;
+//
         auto start = command.begin();
-        auto finish = command.end();
+//        auto finish = command.end();
+        auto finish = unique(start, command.end(), [](char l, char r) {
+                return isspace(l) && isspace(r) && l==r;
+                });
+        if (isspace(*start)) start++;
+        if (isspace(*(finish-1))) finish--;
         auto point = start;
         while (point!=finish) {
             string token;
@@ -28,11 +42,10 @@ vector <string>  input_with_prompt() {
             tokens.push_back(token);
             start=point+1;
         }
-/*         cout << "input: " << endl;
+          cout << "input: " << endl;
         for (auto a : tokens) {
-            cout << a << " ";
+            cout << a << endl;
         }
-        cout << "switcher start: " << endl; */ 
 return tokens;
 }
 

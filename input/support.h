@@ -12,7 +12,7 @@
 #include <vector>
 #include <map>
 #include <iostream>
-
+#include "manager.h"
 struct Name {
     std::string first_name;
     std::string second_name;
@@ -22,15 +22,6 @@ std::istream& operator>> (std::istream& is, Name& name);
 
 Name  add_input ();
 
-class Data {
-  public:
-  virtual void  Add()= 0 ;
-  virtual void  Del(int id)= 0 ;
-  virtual void  Update(int id)= 0 ;
-
-  virtual void Search(int id) = 0;
-  virtual void List() = 0;
-};
 
 class Supports:public Data {
   public:

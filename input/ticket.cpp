@@ -12,12 +12,4 @@
 
 using namespace std;
 
-void ticket_manger (vector <string>::iterator start,
-                     vector <string>:: iterator finish) {
-    cout << "Calling for ticket manager with: ";
-    for (auto i = start; i!=finish; i++) {
-        cout << *i << " ";
-    }
-    cout << endl;
-}
 
