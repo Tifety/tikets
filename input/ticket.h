@@ -12,6 +12,26 @@
 #include <vector>
 #include <map>
 #include <iostream>
+#include <utility>
+#include "manager.h"
+struct Ticket_Info {
+  int price;
+  double support_part;
+  std::string description;
+  std::string comment;
+};
 
-void ticket_manger (std::vector <std::string>::iterator start,
-                     std::vector <std::string>:: iterator finish);
+ std::istream& operator>> (std::istream& is,  Ticket_Info& info);
+
+class Tickets:public Data {
+  public: 
+  void Add() override;
+  void Del(int id) override;
+  void Search(int id) override;
+  void List() override;
+  void Update(int id) override;
+  private:
+  std::map <int, std::vector<int>> id_list;
+  std::map <std::pair<int, int>, Ticket_Info> tickets_list;
+
+};

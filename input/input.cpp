@@ -42,10 +42,10 @@ vector <string>  input_with_prompt() {
             tokens.push_back(token);
             start=point+1;
         }
-          cout << "input: " << endl;
+/*         cout << "input: " << endl;
         for (auto a : tokens) {
             cout << a << endl;
-        }
+        } */
 return tokens;
 }
 

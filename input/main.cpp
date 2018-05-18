@@ -25,24 +25,28 @@ using namespace std;
 #include "support.h"
 #include "input.h"
 #include "manager.h"
-
+#include "ticket.h"
 
 int main()
 {
     Supports supports;
+    Tickets tickets;
     while (true) {
         vector <string> command = input_with_prompt();
-        if (command[0] == "exit") exit (0);
+        string type = command[0]; 
+        if (type == "exit") exit (0);
         if (!validation(command)) {
           cout << "Wrong syntax" << endl;
           continue;
         }
-    if (command[0] == "support") {
+    if (type == "support") {
     Manager(supports, 
         {command.begin()+1, command.end()});
     }
+    if (type == "ticket") {
+    Manager(tickets, {command.begin()+1, command.end()});
     }
+}
     return 0;
 }
-
 
