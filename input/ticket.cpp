@@ -26,7 +26,7 @@ void Tickets::Add () {
   int sup_id, ticket_id;
  Ticket_Info info;
  cout << "Support id: ";
-cin >> sup_id;
+ cin >> sup_id;
   cout << "Ticket number: ";
   cin >> ticket_id; 
   cin.ignore();
@@ -37,14 +37,15 @@ tickets_list[make_pair(ticket_id, sup_id)] = info;
 
 void Tickets::List() {
   for (auto t : tickets_list) {
-    cout << t.first.first << " " << t.first.second << " : " << endl
+    cout << t.first.first << " " << t.first.second << " : " 
     << t.second.price << " - " << t.second.description << "(" 
     << t.second.comment << ")" << endl;
   }
 }
 
 void Tickets::Del(int id) {
-  cout << "del" << endl;
+  
+    cout << "del" << endl;
 }
 
 void Tickets::Update(int id) {
